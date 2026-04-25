@@ -1,0 +1,150 @@
+{
+  "info": {
+    "_postman_id": "352928b7-ff42-4183-85bd-0d46d883ba03",
+    "name": "Tarea REST - Rick and Morty",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54301247",
+    "_collection_link": "https://go.postman.co/collection/54301247-352928b7-ff42-4183-85bd-0d46d883ba03?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET Todos los personajes",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Verificar éxito\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "// Verificar que recibimos una lista\r",
+              "pm.test(\"Devuelve una lista de personajes\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.results).to.be.an('array');\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://rickandmortyapi.com/api/character",
+          "protocol": "https",
+          "host": [
+            "rickandmortyapi",
+            "com"
+          ],
+          "path": [
+            "api",
+            "character"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Personaje por ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"El personaje es Rick Sanchez\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.name).to.eql(\"Rick Sanchez\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://rickandmortyapi.com/api/character/1",
+          "protocol": "https",
+          "host": [
+            "rickandmortyapi",
+            "com"
+          ],
+          "path": [
+            "api",
+            "character",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Filtrar por Morty Vivo",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "GET Ubicaciones",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "GET Episodios",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"El primer episodio es el Piloto\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.results[0].name).to.eql(\"Pilot\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://rickandmortyapi.com/api/episode",
+          "protocol": "https",
+          "host": [
+            "rickandmortyapi",
+            "com"
+          ],
+          "path": [
+            "api",
+            "episode"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
