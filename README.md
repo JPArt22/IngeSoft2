@@ -20,7 +20,26 @@ El patrón **Singleton** asegura que la primera vez que se piden las credenciale
 
 ---
 
-## 2. Nivel 2: Patrón Creacional + Estructural (Factory Method + Adapter)
+## 2. Nivel 1.5: Patrón Creacional (Factory Method Puro)
+
+![Diagrama del patrón Factory Method](images/factory.png)
+
+**¿Qué hice acá?**
+Implementé una **Fábrica de Notificaciones Cloud** (`CloudNotificationFactory`). 
+
+**¿Para qué sirve y qué problema resuelve?**
+En una arquitectura AWS, las aplicaciones necesitan enviar alertas por distintos canales (Email vía **SES**, Mensajes vía **SNS** o logs internos). Si el código principal tuviera que saber cómo configurar cada servicio de AWS manualmente cada vez que quiere avisar algo, el código se volvería un desastre de "if/else" gigantescos.
+
+El patrón **Factory Method** resuelve esto delegando la creación:
+* El código principal solo dice: *"Oye, fábrica, envíame esta alerta"*.
+* La fábrica (`EmailFactory` o `SMSFactory`) se encarga de instanciar el objeto correcto con la lógica específica de cada servicio.
+
+**Resultado:** Si mañana queremos añadir notificaciones por **Slack**, solo creamos una nueva fábrica pequeña sin tener que tocar ni una sola línea del código que ya funciona. Es el principio de "Abierto/Cerrado" en su máxima expresión.
+
+
+---
+
+## 3. Nivel 2: Patrón Creacional + Estructural (Factory Method + Adapter)
 
 ![Diagrama de los patrones Factory Method y Adapter](images/factoryAdapter.png)
 
@@ -36,7 +55,7 @@ Imaginemos que nuestra app guarda cosas en **AWS S3**, pero un cliente nos oblig
 
 ---
 
-## 3. Nivel 3: Creacional + Estructural + Comportamiento (Singleton + Proxy + Observer)
+## 4. Nivel 3: Creacional + Estructural + Comportamiento (Singleton + Proxy + Observer)
 
 ![Diagrama de los patrones Singleton, Proxy y Observer](images/singletonProxyObserver.png)
 
