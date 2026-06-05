@@ -62,13 +62,3 @@ Durante el desarrollo se presentaron los siguientes escenarios que permitieron a
    * **Solución:** Implementé Kotlin Coroutines (`lifecycleScope.launch`) para ejecutar el consumo de todas las APIs de manera asíncrona, manteniendo la interfaz fluida en todo momento.
 3. **Estructura del Proyecto:** * **Reto:** Diferenciar correctamente los directorios de pruebas (`test` o `androidTest`) del directorio principal de ejecución. 
    * **Solución:** Se mantuvo una jerarquía limpia donde los clientes de API, los Helpers de SQLite y las Activities conviven en el paquete principal, permitiendo una correcta compilación.
-
-## ▶️ Cómo ejecutar el proyecto
-1. Clonar el repositorio (o extraer el archivo .zip comprimido).
-2. Abrir **Android Studio**.
-3. Seleccionar `File` -> `Open` y buscar la carpeta raíz del proyecto.
-4. Esperar a que Gradle sincronice las dependencias (se requiere conexión a internet).
-5. Ejecutar la aplicación en un Emulador con API 24 o superior, o en un dispositivo físico con las opciones de desarrollador habilitadas.
-
----
-*Prueba desarrollada y documentada por [Tu Nombre/Usuario] - 2026*
